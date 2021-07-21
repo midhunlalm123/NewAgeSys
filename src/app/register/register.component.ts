@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.validateForms();
     Image
-    console.log(this.data);
     if (this.data) {
       this.registerForm.patchValue(
         {
@@ -143,16 +142,22 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       age: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.minLength(10)]],
       address: ['', Validators.required],
       country: ['', Validators.required],
       state: ['', Validators.required],
       chipsetValue: ['']
-
     })
-
   }
+  keyPress(event: any) {
+    const pattern = /[0-9\+\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+  get f() { return this.registerForm.controls; }
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();

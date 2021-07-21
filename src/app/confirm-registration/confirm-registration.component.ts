@@ -22,7 +22,7 @@ export class ConfirmRegistrationComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // console.log(this.regUserData)
+    console.log(this.regUserData)
     let chipsetValueArray = this.regUserData.chipsetValue;
     if (chipsetValueArray.length > 0) {
       let stringConcat = '';
