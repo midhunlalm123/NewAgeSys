@@ -1,0 +1,114 @@
+<section class="card" fxFlex='100'>
+    <div fxFlex='35' class="left-side" fxLayoutAlign="center">
+        <div fxLayout="column">
+            <h2>Register your profile</h2>
+            <h6>outline the following fields and you are ready to go</h6>
+        </div>
+        <img src="assets/img/graphics.png" alt="">
+    </div>
+    <div fxFlex='65' class="right-side">
+        <div fxLayoutAlign="center" class="upload" *ngIf="!(image)">
+            <input #fileUpload type="file" (change)="changeListener($event)" style="display:none">
+            <button (click)="fileUpload.click()"> </button>
+            <span>Upload Photo</span>
+        </div>
+        <div *ngIf="image" class="home">
+            <img src="{{image}}" alt="">
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayout="column" class="margin">
+            <div fxFlex='100' fxLayoutGap="2%">
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="First Name" formControlName="name">
+                    <mat-error *ngIf="registerForm.controls.name.errors?.required">First Name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <input matInput placeholder="Last Name" formControlName="lastname">
+                    <mat-error *ngIf="registerForm.controls.lastname.errors?.required">Last Name is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="margin-bottom: 35px;">
+                <mat-label>Age</mat-label>
+                <ng5-slider [options]="options" formControlName="age"></ng5-slider>
+            </div>
+            <div fxFlex='100' fxLayoutGap="2%">
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email Address" formControlName="email">
+                    <mat-error *ngIf="registerForm.controls.email.errors?.required">User ID is required</mat-error>
+                    <mat-error *ngIf="registerForm.controls.email.errors?.Invalid">email is not valid</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="phone" type="number" formControlName="phone">
+                    <mat-error *ngIf="registerForm.controls.phone.errors?.required">User ID is required</mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <select matNativeControl formControlName="address">
+                    <option value="">--Select Address--</option>
+                    <option value="Home">Home</option>
+                    <option value="Company">Company</option>
+                </select>
+                <mat-error *ngIf="registerForm.controls.address.errors?.required">Select Address</mat-error>
+            </mat-form-field>
+            <div fxFlex='100' fxLayoutGap="2%" *ngIf="registerForm.value.address=='Home'">
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Address 1</mat-label>
+                    <input matInput >
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Address 2</mat-label>
+                    <input matInput >
+                </mat-form-field>
+            </div>
+            <div fxFlex='100' fxLayoutGap="2%" *ngIf="registerForm.value.address=='Company'">
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Company Address 1</mat-label>
+                    <input matInput >
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Company Address 2</mat-label>
+                    <input matInput >
+                </mat-form-field>
+            </div>
+            <div fxFlex='100' fxLayoutGap="2%">
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Select Country</mat-label>
+                    <select matNativeControl formControlName="country" (change)="getStates()">
+                        <option *ngFor="let option of country">
+                            {{option.viewValue}}
+                        </option>
+                    </select>
+                    <mat-error *ngIf="registerForm.controls.country.errors?.required">Select Country</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex='50'>
+                    <mat-label>Select State</mat-label>
+                    <select matNativeControl formControlName="state">
+                        <option *ngFor="let option of state">
+                            {{option.viewValue}}
+                        </option>
+                    </select>
+                    <mat-error *ngIf="registerForm.controls.state.errors?.required">Select State</mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field  appearance="outline">
+                <mat-label>Interests</mat-label>
+                <mat-chip-list #chipList aria-label="interests selection" >
+                    <mat-chip *ngFor="let option of interests" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(option)">
+                        {{option.name}}
+                        <mat-icon matChipRemove *ngIf="removable">X</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Interests" [matChipInputFor]="chipList" formControlName="chipsetValue" 
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+            <div fxLayoutAlign="center">
+                <button class="next" >Next</button>
+            </div>
+        </form>
+    </div>
+</section>

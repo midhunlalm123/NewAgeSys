@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/theme/values.scss";
+
+body {
+    background: $body-color;
+    margin: 0;
+}
+.card {
+    background: #fff;
+    border-radius: 10px;  
+    max-width: 900px !important;
+    min-height: 545px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: #d0cece !important;
+    border-radius: 10px;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    /* padding: 1em 0 1em 0; */
+    padding: 10px !important;
+}
+.ng5-slider .ng5-slider-tick-legend{
+    white-space: nowrap !important;
+}
+.ng5-slider .ng5-slider-pointer{
+    outline: none !important;
+}
+.ng5-slider-inner-tooltip{
+    display: none !important;
+}
+.mat-horizontal-content-container{
+    background: $body-color !important;
+}
+.mat-horizontal-stepper-header-container{
+    display: none !important;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex{
+    background: #fff !important;
+}
+button{
+    cursor: pointer;
+}

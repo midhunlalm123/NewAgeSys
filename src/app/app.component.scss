@@ -1,0 +1,22 @@
+.navbar {
+    background: #fff;
+    height: 45px;
+    border-bottom: 2px solid #ddd;
+    
+    & img {
+        width: 12%;
+        margin: 10px;
+    }
+
+    & ul {
+        display: flex;
+        list-style-type: none;
+        font-weight: 500;
+        font-size: 13px;
+        margin-top: 0;
+    }
+    & li {
+        margin-right: 10px;
+        text-transform: capitalize;
+    }
+}

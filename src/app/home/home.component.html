@@ -1,0 +1,12 @@
+<mat-stepper [linear]="true" #stepper>
+    <mat-step>
+        <app-register (DataEmitter)="getValue($event ,stepper)" *ngIf="Index==0" [data]="getallData"></app-register>
+    </mat-step>
+    <mat-step>
+        <app-confirm-registration *ngIf="Index==1" [regUserData]="allData"
+            (DataEmitterback)="getValueback($event ,stepper)"></app-confirm-registration>
+    </mat-step>
+    <mat-step>
+        <app-success *ngIf="Index==2"></app-success>
+    </mat-step>
+</mat-stepper>

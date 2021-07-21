@@ -1,0 +1,22 @@
+<section class="card" fxFlex='100'>
+    <div fxFlex='35' class="left-side" fxLayoutAlign="center">
+        <div fxLayout="column">
+            <h2>confirm registration</h2>
+            <h6>confirm profile information</h6>
+        </div>
+        <img src="assets/img/graphics.png" alt="">
+    </div>
+    <div fxFlex='65' class="right-side" fxLayoutAlign="center" fxLayout="column">
+        <div *ngIf="regUserData.Image">
+            <img src="{{regUserData.Image}}" alt="">
+        </div>
+        <h2>Hi i am {{regUserData.Name}}</h2>
+        <p>and i am above {{regUserData.age}} and send your emails to {{regUserData.Email}}.i lives in the state of
+            {{regUserData.State}}. i like to play {{stringConcat?stringConcat:""}}
+            .Please reach out to me on my phone {{regUserData.Phone}}</p>
+        <div fxLayoutAlign="center">
+            <button (click)="confirmAllData()" class="agree">Agree</button>
+        </div>
+        <a (click)="backtoEdit()">Back to Edit Profile</a>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+@import '../theme/values.scss';
+
+.agree {
+    background: $primary;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 8px 55px;
+    border-radius: 5px;
+}
+.center{
+    max-width: 50%;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding: 45px;
+
+    & h2{
+        text-align: center;
+    }
+}

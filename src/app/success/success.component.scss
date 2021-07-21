@@ -1,0 +1,73 @@
+@import "../theme/values.scss";
+
+.left-side {
+    background-image: linear-gradient(180deg, #0073ff, #691087);
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    & img {
+        width: 75%;
+        position: absolute;
+        bottom: 0;
+    }
+    & h2 {
+        color: #fff;
+        text-transform: capitalize;
+        font-weight: 600;
+        margin-top: 6rem;
+        margin-bottom: 0;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 1px;
+    }
+    & h6 {
+        color: #fff;
+    }
+}
+.right-side p {
+    margin: 55px 80px;
+    margin-top: 0;
+}
+.right-side h2 {
+    margin: 10px 80px;
+    font-weight: 900;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+.right-side {
+    position: relative;
+    & a {
+        position: absolute;
+        bottom: 40px;
+        left: 80px;
+        font-size: 13px;
+        padding: 10px;
+        font-weight: 600;
+    }
+    & h5{
+        margin: 0;
+    }
+}
+.right-side a::before{
+    content: '';
+    background-image: url('/assets/img/arrow.png');
+    position: absolute;
+    left: -27px;
+    right: 0;
+    top: 8px;
+    bottom: 0;
+    background-repeat: no-repeat;
+}
+.agree {
+    background: $primary;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 8px 55px;
+    border-radius: 5px;
+}
+.center{
+    display: flex;
+    align-items: center !important;
+    & img{
+        width: 16%;
+    }
+}

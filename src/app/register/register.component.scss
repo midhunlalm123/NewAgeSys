@@ -1,0 +1,80 @@
+@import '../theme/values.scss';
+
+
+.left-side {
+    background-image: linear-gradient(180deg, #0073ff, #691087);
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    & img {
+        width: 75%;
+        position: absolute;
+        bottom: 0;
+    }
+    & h2 {
+        color: #fff;
+        text-transform: capitalize;
+        font-weight: 600;
+        margin-top: 6rem;
+        margin-bottom: 0;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 1px;
+    }
+    
+    & h6 {
+        color: #fff;
+    }
+}
+.example-chip-list {
+    width: 100%;
+  }
+
+.right-side{
+    overflow-y: scroll;
+    max-height: 560px;
+}
+.right-side img {
+    background: #e2e2e2;
+    padding: 15px;
+    border-radius: 50%;
+    margin-top: 4rem;
+}
+.margin {
+    margin: 45px;
+}
+.upload {
+    position: relative;
+    & span {
+        position: absolute;
+        bottom: -27px;
+        font-size: 13px;
+    }
+    & button {
+        background-image: url("/assets/img/user-solid.png");
+        height: 60px;
+        width: 61px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+   
+}
+ .next{
+        background: $primary;
+        outline: none;
+        border: 0;
+        color: #fff;
+        padding: 8px 55px;
+        border-radius: 5px;
+    }
+    .home img{
+        height: 55px;
+        width: 50px;
+        padding: 4px;
+    }
+    .home{
+        display: flex;
+        justify-content: center;
+    }
