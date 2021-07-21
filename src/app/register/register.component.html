@@ -1,4 +1,4 @@
-<section class="card" fxFlex='100'>
+<section class="card" fxFlex='100' fxLayout.xs="column">
     <div fxFlex='35' class="left-side" fxLayoutAlign="center">
         <div fxLayout="column">
             <h2>Register your profile</h2>
@@ -35,13 +35,13 @@
                 <mat-form-field appearance="outline" fxFlex='50'>
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="Email Address" formControlName="email">
-                    <mat-error *ngIf="registerForm.controls.email.errors?.required">User ID is required</mat-error>
+                    <mat-error *ngIf="registerForm.controls.email.errors?.required">Email Id is required</mat-error>
                     <mat-error *ngIf="f.email.errors?.email">Email must be a valid email address</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline" fxFlex='50'>
                     <mat-label>Phone</mat-label>
                     <input matInput placeholder="phone" formControlName="phone" (keypress)="keyPress($event)">
-                    <mat-error *ngIf="registerForm.controls.phone.errors?.required">User ID is required</mat-error>
+                    <mat-error *ngIf="registerForm.controls.phone.errors?.required">Phone Number is required</mat-error>
                     <mat-error *ngIf="f.phone.errors?.minlength">Phone Number must be 10 digit</mat-error>
                 </mat-form-field>
             </div>
